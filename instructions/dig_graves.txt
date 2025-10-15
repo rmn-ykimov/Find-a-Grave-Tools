@@ -1,13 +1,13 @@
 # ------------------------------------------------\
 #  Instructions file for dig_graves.py.
-#  Last update: 2024/06/10 @ 09:00pm.
+#  Last update: 2025/10/15 @ 06:00pm.
 #
 #  Name:               dig_graves.txt
 #  URI:                https://github.com/doug-foster/find-a-grave-tools
 #  Description:	       Instructions file for dig_graves.py
 #  Version:            1.2.3
 #  Requires at least:  3.1 Python
-#  Prefers:            3.12 Python
+#  Prefers:            3.14 Python
 #  Author:             Doug Foster
 #  Author URI:         http://dougfoster.me
 #  License:            GPL v3 or later
@@ -15,7 +15,18 @@
 #  Update URI:         https://github.com/doug-foster/find-a-grave-tools
 #  Text Domain:        find-a-grave-tools
 #
-#  dig_graves.py extracts/reports data for a collection of stashed "Find a Grave" memorial pages.
+#  Notes:
+#  1. Read the general instructions in README.md.
+#  2. 'stash_graves.py' must be run before 'dig-graves.py.'
+#  3. For data integrity (if getting multiple groups), get a fresh copy of for all groups before running 'dig-graves.py.'
+#  4. Every "information only" line in this file must start with a #.
+#  5. By default, "log" appears by itself on a line. This will create a log file in the /logs folder. To not create a log for each run,
+#     preceed "log" by a comment symbol (#) e.g. #log.
+#  6. Be sure to read and follow the guidelines under the 'Schema' section below. Do not forget to create a unique abbreviation for each
+#     cemetery (e.g. PRES, UMC, ...) and append it after the cemetery id (e.g. 2353265-PRES, 2136908-UMC, ...). This abbreviation
+#     is used as the tab name on the final spreadsheet created by 'dig-graves.py.'
+#  7. 'dig_graves.py' extracts/reports data from a collection of stashed "Find a Grave" memorial pages (see 'stash_graves.txt').
+#  8. Groups are not currently used by dig_graves.py.
 #
 #  Schema:
 #   log = create a log file
@@ -26,9 +37,6 @@
 #   Colon (:) separates cemetery_id and groups
 #   Comma (,) separates groups
 #   cemetery_id without group(s) will convert to include all groups.
-#
-#  Groups are not currently used by dig_graves.py.
-#  If "log" appears by itself on a line, start a log file.
 #
 #  Examples:
 #   2136908 : child
@@ -44,14 +52,18 @@
 #   2136908-UMC - Sherrill United Methodist Church Cemetery - Sherrill, Dubuque County, Iowa, USA
 #   1682503-IOOF - Odd Fellows Cemetery - Sherrill, Dubuque County, Iowa, USA
 #   1676398-SPP - Saints Peter and Paul Cemetery - Sherrill, Dubuque County, Iowa, USA.
+#   2748319-BGC  - Benjamin G Gaskill Cemetery - Blounts Creek, North Carolina, USA.
+#   2748396-RMG  - R. M. Gaskill Cemetery - Blounts Creek, North Carolina, USA.
 # ------------------------------------------------\
 
-# log
+log
 # 2353265-PRES
 # 2243718-UCC
 # 2145876-SML
 # 2136908-UMC
 # 1682503-IOOF
-1676398-SPP
+# 1676398-SPP
+2748319-BGC
+2748396-RMG
 
 # ------------------------------------------------/

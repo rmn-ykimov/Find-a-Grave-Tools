@@ -1,13 +1,13 @@
 # ------------------------------------------------\
-#  Instructions file for stash_graves.py.
-#  Last update: 2024/06/10 @ 04:00pm.
+#  Instructions file for stash_graves.py
+#  Last update: 2025/10/15 @ 06:00pm.
 #
 #  Name:               stash_graves.txt
 #  URI:                https://github.com/doug-foster/find-a-grave-tools
 #  Description:	       Instructions file for dig_graves.py
-#  Version:            1.2.2
+#  Version:            1.2.3
 #  Requires at least:  3.1 Python
-#  Prefers:            3.12 Python
+#  Prefers:            3.14 Python
 #  Author:             Doug Foster
 #  Author URI:         http://dougfoster.me
 #  License:            GPL v3 or later
@@ -15,20 +15,29 @@
 #  Update URI:         https://github.com/doug-foster/find-a-grave-tools
 #  Text Domain:        find-a-grave-tools
 #
-#  stash_graves.py creates a local stash of "Find a Grave" memorial pages for a cemetery.
+#  Notes:
+#  1. Read the general instructions in README.md.
+#  2. 'stash_graves.py' must be run before 'dig-graves.py.'
+#  3. For data integrity (if getting multiple groups), get a fresh copy of for all groups before running 'dig-graves.py.'
+#  4. Every "information only" line in this file must start with a #.
+#  5. By default, "log" appears by itself on a line. This will create a log file in the /logs folder. To not create a log for each run,
+#     preceed "log" by a comment symbol (#) e.g. #log.
+#  6. Be sure to read and follow the guidelines under the 'Schema' section below. Do not forget to create a unique abbreviation for each
+#     cemetery (e.g. PRES, UMC, ...) and append it after the cemetery id (e.g. 2353265-PRES, 2136908-UMC, ...). This abbreviation
+#     is used as the tab name on the final spreadsheet created by 'dig-graves.py.'
+#  7. 'stash_graves.py' creates a local stash of 'Find a Grave' memorial pages for each cemetery.
+#     Stashes are named by cemetery and located in the /stash folder. If you move or rename them, 'dig-graves.py' (which extracts
+#     data from each stash and creates teh spreadsheet report) will fail.
 #
 #  Schema:
 #   log = create a log file
 #   cemetery_id-nickname : group, group, ...
 #   cemetery_id = numeric Find a Grave cemetery ID
-#   -nickname = cemetery abbreviation for spreadsheet tab name
+#   -nickname = cemetery abbreviation for spreadsheet tab name     *** This is required, you must create it: e.g. PRES, UMC, ... ***
 #   valid groups = burial, parent, spouse, child, sibling, half-sibling
 #   Colon (:) separates cemetery_id and groups
 #   Comma (,) separates groups
 #   cemetery_id without group(s) will convert to include all groups.
-#
-#  For data integrity, if getting all groups, get a fresh copy of all burials.
-#  If "log" appears by itself on a line, start a log file.
 #
 #  Examples:
 #   2136908 : child
@@ -39,20 +48,26 @@
 #
 #  Cemeteries:
 #   2353265-PRES - Sherrill Presbyterian Cemetery - Sherrill, Dubuque County, Iowa, USA
-#   2243718-UCC - Sherrill United Church of Christ Cemetery - Sherrill, Dubuque County, Iowa, USA
-#   2145876-SML - Saint Matthew Cemetery - Sherrill, Dubuque County, Iowa, USA
-#   2136908-UMC - Sherrill United Methodist Church Cemetery - Sherrill, Dubuque County, Iowa, USA
+#   2243718-UCC  - Sherrill United Church of Christ Cemetery - Sherrill, Dubuque County, Iowa, USA
+#   2145876-SML  - Saint Matthew Cemetery - Sherrill, Dubuque County, Iowa, USA
+#   2136908-UMC  - Sherrill United Methodist Church Cemetery - Sherrill, Dubuque County, Iowa, USA
 #   1682503-IOOF - Odd Fellows Cemetery - Sherrill, Dubuque County, Iowa, USA
-#   1676398-SPP - Saints Peter and Paul Cemetery - Sherrill, Dubuque County, Iowa, USA.
+#   1676398-SPP  - Saints Peter and Paul Cemetery - Sherrill, Dubuque County, Iowa, USA.
+#   2748319-BGC  - Benjamin G Gaskill Cemetery - Blounts Creek, North Carolina, USA.
+#   2748396-RMG  - R. M. Gaskill Cemetery - Blounts Creek, North Carolina, USA.
 # ------------------------------------------------\
 
-#log
+log
 # 2353265-PRES
 # 2243718-UCC
 # 2145876-SML
 # 2136908-UMC
 # 1682503-IOOF
-1676398-SPP
+# 1676398-SPP
+# 2748319-BGC - Benjamin G Gaskill Cemetery
+# 2748396-RMG - R. M. Gaskill Cemetery
 # 1676398 : parent, spouse, child, sibling, half-sibling
+2748319-BGC
+2748396-RMG
 
 # ------------------------------------------------/
